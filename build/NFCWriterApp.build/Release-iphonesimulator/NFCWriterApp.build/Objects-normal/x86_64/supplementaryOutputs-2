@@ -1,0 +1,12 @@
+{
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Models/AccessLogEntry.swift" : {
+    "abi-baseline-json" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp.abi.json",
+    "const-values" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp-primary.swiftconstvalues",
+    "dependencies" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp-primary.d",
+    "diagnostics" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp-primary.dia",
+    "objc-header" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp-Swift.h",
+    "swiftdoc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp.swiftdoc",
+    "swiftmodule" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp.swiftmodule",
+    "swiftsourceinfo" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/x86_64/NFCWriterApp.swiftsourceinfo"
+  }
+}

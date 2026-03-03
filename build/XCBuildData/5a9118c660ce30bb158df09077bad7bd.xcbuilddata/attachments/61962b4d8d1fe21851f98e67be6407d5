@@ -1,0 +1,13 @@
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Models/AccessLogEntry.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Models/AccessResponse.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Models/DoorChallenge.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Services/AccessLogService.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Services/CryptoService.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Services/KeychainService.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Services/NFCService.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/ViewModels/DoorAccessViewModel.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Views/AccessLogView.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/Views/DoorAccessView.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/ContentView.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/NFCWriterApp/NFCWriterAppApp.swift
+/Users/gamalragab/personal\ Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/DerivedSources/GeneratedAssetSymbols.swift

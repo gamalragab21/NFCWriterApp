@@ -1,0 +1,76 @@
+{
+  "" : {
+    "const-values" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary.swiftconstvalues",
+    "dependencies" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary.d",
+    "diagnostics" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary.dia",
+    "emit-module-dependencies" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary-emit-module.dia",
+    "pch" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterApp-primary.swiftdeps"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/ContentView.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/ContentView.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Models/AccessLogEntry.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogEntry.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogEntry.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogEntry.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Models/AccessResponse.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessResponse.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessResponse.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessResponse.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Models/DoorChallenge.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorChallenge.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorChallenge.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorChallenge.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/NFCWriterAppApp.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterAppApp.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterAppApp.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCWriterAppApp.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Services/AccessLogService.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogService.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogService.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogService.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Services/CryptoService.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/CryptoService.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/CryptoService.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/CryptoService.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Services/KeychainService.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/KeychainService.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/KeychainService.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/KeychainService.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Services/NFCService.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCService.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCService.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/NFCService.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/ViewModels/DoorAccessViewModel.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessViewModel.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessViewModel.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessViewModel.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Views/AccessLogView.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogView.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogView.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/AccessLogView.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Views/DoorAccessView.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessView.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessView.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/DoorAccessView.o"
+  },
+  "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/gamalragab/personal Projects/NFCWriterApp/build/NFCWriterApp.build/Release-iphonesimulator/NFCWriterApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

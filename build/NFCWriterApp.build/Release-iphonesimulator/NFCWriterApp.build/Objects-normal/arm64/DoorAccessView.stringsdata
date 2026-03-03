@@ -1,0 +1,72 @@
+{
+  "source": "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Views/DoorAccessView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Door Access",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "History",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "Save",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Guest Information",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 43
+        }
+      },
+      {
+        "comment": "",
+        "key": "NFC Ready",
+        "location": {
+          "startingColumn": 49,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "No NFC",
+        "location": {
+          "startingColumn": 63,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "Recent Activity",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 114
+        }
+      },
+      {
+        "comment": "",
+        "key": "No access attempts yet",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 119
+        }
+      }
+    ]
+  },
+  "version": 1
+}

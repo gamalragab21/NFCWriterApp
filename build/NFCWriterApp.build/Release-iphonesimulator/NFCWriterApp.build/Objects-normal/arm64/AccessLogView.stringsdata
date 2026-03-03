@@ -1,0 +1,56 @@
+{
+  "source": "/Users/gamalragab/personal Projects/NFCWriterApp/NFCWriterApp/Views/AccessLogView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Access History",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "Your door access attempts will appear here.",
+        "location": {
+          "startingColumn": 39,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Access History",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "Success",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Failed",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Clear",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 57
+        }
+      }
+    ]
+  },
+  "version": 1
+}

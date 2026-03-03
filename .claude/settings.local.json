@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -scheme NFCWriterApp -destination 'generic/platform=iOS' -quiet build)",
+      "Bash(xcodebuild -showsdks)",
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -scheme NFCWriterApp -sdk iphonesimulator26.2 -destination 'platform=iOS Simulator,name=iPhone 16' build)",
+      "Bash(xcrun simctl list devices available)",
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -scheme NFCWriterApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16 Pro' build)",
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -scheme NFCWriterApp -sdk iphonesimulator26.2 -destination 'platform=iOS Simulator,OS=18.5,name=iPhone 16 Pro' IPHONEOS_DEPLOYMENT_TARGET=18.0 build)",
+      "Bash(xcodebuild -version)",
+      "Bash(xcode-select -p)",
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -target NFCWriterApp -sdk iphonesimulator26.2 IPHONEOS_DEPLOYMENT_TARGET=18.0 SUPPORTS_MACCATALYST=NO build)",
+      "Bash(xcodebuild -project NFCWriterApp.xcodeproj -target NFCWriterApp -sdk iphonesimulator26.2 IPHONEOS_DEPLOYMENT_TARGET=18.0 build)",
+      "Bash(xcodebuild -target NFCWriterApp -sdk iphonesimulator26.2 IPHONEOS_DEPLOYMENT_TARGET=18.0 build)",
+      "Bash(python3 -c \"import docx; print\\(''python-docx available''\\)\")",
+      "Bash(pip3 install python-docx)",
+      "Bash(python3 generate_docs.py)",
+      "Bash(ls -lh \"/Users/gamalragab/personal Projects/NFCWriterApp/\"*.docx)"
+    ]
+  }
+}

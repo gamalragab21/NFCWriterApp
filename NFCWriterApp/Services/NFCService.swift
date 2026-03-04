@@ -61,7 +61,7 @@ nonisolated final class NFCService: NSObject, @unchecked Sendable {
                 delegate: self,
                 queue: nil
             )
-            self.session?.alertMessage = "Hold your iPhone near the door reader"
+            self.session?.alertMessage = "Preparing NFC..."
             self.session?.begin()
         }
         #endif
@@ -78,7 +78,8 @@ nonisolated final class NFCService: NSObject, @unchecked Sendable {
 extension NFCService: NFCTagReaderSessionDelegate {
 
     func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
-        // Session successfully acquired NFC hardware
+        // NFC hardware is now exclusively locked by our app — Wallet/Express Mode is suspended
+        session.alertMessage = "Ready! Hold your iPhone near the door reader"
     }
 
     func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: any Error) {

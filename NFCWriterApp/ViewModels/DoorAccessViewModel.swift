@@ -47,6 +47,8 @@ final class DoorAccessViewModel {
         self.accessLog = accessLogService.loadEntries()
     }
 
+    private let maxRetries = 2
+
     func startDoorAccess() async {
         guard accessState != .scanning else { return }
         guard hasGuestData else {
@@ -63,38 +65,49 @@ final class DoorAccessViewModel {
             checkOut: checkOut
         )
 
-        let nfcService = NFCService(guestData: guestData)
+        // Retry loop for system busy errors (e.g. Apple Wallet grabbed NFC)
+        for attempt in 0...maxRetries {
+            let nfcService = NFCService(guestData: guestData)
 
-        do {
-            let result = try await nfcService.writeGuestData()
-            accessState = .success(roomNumber: result.roomNumber)
+            do {
+                let result = try await nfcService.writeGuestData()
+                accessState = .success(roomNumber: result.roomNumber)
 
-            let entry = AccessLogEntry(doorID: "Room \(result.roomNumber)", success: true)
-            accessLogService.addEntry(entry)
-            accessLog = accessLogService.loadEntries()
+                let entry = AccessLogEntry(doorID: "Room \(result.roomNumber)", success: true)
+                accessLogService.addEntry(entry)
+                accessLog = accessLogService.loadEntries()
 
-            try? await Task.sleep(for: .seconds(3))
-            if case .success = accessState {
-                accessState = .idle
-            }
-        } catch {
-            let message: String
-            if let nfcError = error as? NFCAccessError {
-                message = nfcError.errorDescription ?? error.localizedDescription
-            } else {
-                message = error.localizedDescription
-            }
+                try? await Task.sleep(for: .seconds(3))
+                if case .success = accessState {
+                    accessState = .idle
+                }
+                return
+            } catch NFCAccessError.systemBusy where attempt < maxRetries {
+                // NFC busy (Wallet interference) — wait and retry
+                accessState = .error(message: "NFC busy, retrying... (\(attempt + 1)/\(maxRetries))")
+                try? await Task.sleep(for: .seconds(1.5))
+                accessState = .scanning
+                continue
+            } catch {
+                let message: String
+                if let nfcError = error as? NFCAccessError {
+                    message = nfcError.errorDescription ?? error.localizedDescription
+                } else {
+                    message = error.localizedDescription
+                }
 
-            if message.contains("Cancelled") {
-                accessState = .idle
+                if message.contains("Cancelled") {
+                    accessState = .idle
+                    return
+                }
+
+                accessState = .error(message: message)
+
+                let entry = AccessLogEntry(doorID: "Room \(roomNumber)", success: false, errorMessage: message)
+                accessLogService.addEntry(entry)
+                accessLog = accessLogService.loadEntries()
                 return
             }
-
-            accessState = .error(message: message)
-
-            let entry = AccessLogEntry(doorID: "Room \(roomNumber)", success: false, errorMessage: message)
-            accessLogService.addEntry(entry)
-            accessLog = accessLogService.loadEntries()
         }
     }
 

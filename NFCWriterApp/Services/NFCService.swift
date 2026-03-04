@@ -7,6 +7,8 @@ nonisolated enum NFCAccessError: LocalizedError, Sendable {
     case writeFailed(String)
     case tagConnectionFailed(String)
     case tagNotWritable
+    case systemBusy
+    case unsupportedTag
 
     var errorDescription: String? {
         switch self {
@@ -20,6 +22,10 @@ nonisolated enum NFCAccessError: LocalizedError, Sendable {
             return "Connection failed: \(msg)"
         case .tagNotWritable:
             return "Tag is not writable"
+        case .systemBusy:
+            return "NFC hardware is busy. Go to Settings → Wallet → Express Mode and turn it OFF, then try again."
+        case .unsupportedTag:
+            return "Unsupported tag type. Reader must be ISO 14443-4 compatible."
         }
     }
 }
@@ -30,7 +36,7 @@ nonisolated struct NFCWriteResult: Sendable {
 }
 
 nonisolated final class NFCService: NSObject, @unchecked Sendable {
-    private var session: NFCNDEFReaderSession?
+    private var session: NFCTagReaderSession?
     private var continuation: CheckedContinuation<NFCWriteResult, Error>?
     private let guestData: GuestAccessData
 
@@ -44,16 +50,16 @@ nonisolated final class NFCService: NSObject, @unchecked Sendable {
         try await Task.sleep(for: .seconds(1.5))
         return NFCWriteResult(roomNumber: guestData.roomNumber, timestamp: Date())
         #else
-        guard NFCNDEFReaderSession.readingAvailable else {
+        guard NFCReaderSession.readingAvailable else {
             throw NFCAccessError.nfcNotAvailable
         }
 
         return try await withCheckedThrowingContinuation { continuation in
             self.continuation = continuation
-            self.session = NFCNDEFReaderSession(
+            self.session = NFCTagReaderSession(
+                pollingOption: .iso14443,
                 delegate: self,
-                queue: nil,
-                invalidateAfterFirstRead: false
+                queue: nil
             )
             self.session?.alertMessage = "Hold your iPhone near the door reader"
             self.session?.begin()
@@ -67,28 +73,51 @@ nonisolated final class NFCService: NSObject, @unchecked Sendable {
     }
 }
 
-// MARK: - NFCNDEFReaderSessionDelegate
+// MARK: - NFCTagReaderSessionDelegate
 
-extension NFCService: NFCNDEFReaderSessionDelegate {
+extension NFCService: NFCTagReaderSessionDelegate {
 
-    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {}
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
+        // Session successfully acquired NFC hardware
+    }
 
-    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: any Error) {
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: any Error) {
         let nfcError = error as NSError
-        if nfcError.domain == "NFCError" && nfcError.code == 200 {
+
+        // User cancelled (code 200)
+        if nfcError.code == 200 {
             resumeContinuation(with: .failure(NFCAccessError.sessionInvalidated("Cancelled")))
             return
         }
+
+        // System resources unavailable (Express Mode / Wallet interference)
+        let desc = error.localizedDescription.lowercased()
+        if desc.contains("system resource") || desc.contains("unavailable") || nfcError.code == 1 {
+            resumeContinuation(with: .failure(NFCAccessError.systemBusy))
+            return
+        }
+
+        // Session timeout (code 5)
+        if nfcError.code == 5 {
+            resumeContinuation(with: .failure(NFCAccessError.sessionInvalidated("Session timed out. Please try again.")))
+            return
+        }
+
         if continuation != nil {
             resumeContinuation(with: .failure(NFCAccessError.sessionInvalidated(error.localizedDescription)))
         }
     }
 
-    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {}
-
-    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [any NFCNDEFTag]) {
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
         guard let tag = tags.first else {
             session.invalidate(errorMessage: "No tag found")
+            return
+        }
+
+        // Must be ISO 14443-4 (Type 4 Tag) — this is what PN532 in card-emulation mode presents
+        guard case .iso7816(let iso7816Tag) = tag else {
+            session.invalidate(errorMessage: "Not a compatible tag")
+            resumeContinuation(with: .failure(NFCAccessError.unsupportedTag))
             return
         }
 
@@ -100,8 +129,8 @@ extension NFCService: NFCNDEFReaderSessionDelegate {
                 return
             }
 
-            // Step 2: Verify tag is writable
-            tag.queryNDEFStatus { status, capacity, error in
+            // Step 2: Verify tag is writable (NFCISO7816Tag conforms to NFCNDEFTag)
+            iso7816Tag.queryNDEFStatus { status, capacity, error in
                 guard error == nil else {
                     session.invalidate(errorMessage: "Cannot query tag")
                     self.resumeContinuation(with: .failure(NFCAccessError.tagConnectionFailed("Query failed")))
@@ -116,7 +145,7 @@ extension NFCService: NFCNDEFReaderSessionDelegate {
 
                 // Step 3: Write guest access data
                 let message = self.guestData.toNDEFMessage()
-                tag.writeNDEF(message) { error in
+                iso7816Tag.writeNDEF(message) { error in
                     if let error {
                         session.invalidate(errorMessage: "Write failed")
                         self.resumeContinuation(with: .failure(NFCAccessError.writeFailed(error.localizedDescription)))
